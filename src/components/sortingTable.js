@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react'
 import MOCK_DATA from './MOCK_DATA.json'
 import { COLUMNS } from './columns'
-import { useTable, useSortBy } from 'react-table'
+import { useTable, useSortBy, useGlobalFilter } from 'react-table'
 import './table.css'
+import { GlobalFilter } from './globalFilter'
 
 const Sortingtable = () => {
     const columns = useMemo(() => COLUMNS, [])
@@ -14,13 +15,19 @@ const Sortingtable = () => {
         headerGroups,
         footerGroups,
         rows,
-        prepareRow
+        prepareRow,
+        state,
+        setGlobalFilter
      } = useTable({
         columns,
         data
-    }, useSortBy )
+    }, useGlobalFilter, useSortBy )
     
+    const { globalFilter } = state
+
     return (
+        <>
+        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />  
         <table {...getTableProps() }>
             <thead>
                 {headerGroups.map(headerGroup => (
@@ -56,6 +63,7 @@ const Sortingtable = () => {
                 ) )}
             </tfoot>
         </table>
+        </>
     )
 }
 
