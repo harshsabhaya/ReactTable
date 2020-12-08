@@ -7,16 +7,18 @@ import Basictable from './components/basictable';
 import RowSelection from './components/RowSelection';
 import ColumnHiding from './components/ColumnHiding';
 import StickyTable from './components/StickyColumn';
+import Pagination from './components/Pagination';
 
 function App() {
   return (
-    <div >
+    <div className='App'>
       {/* <Sortingtable /> */}
       {/* <ColumnOrder /> */}
       {/* <RowSelection /> */}
       {/* <ColumnHiding /> */}
       {/* <StickyTable /> */}
-      <Basictable />
+      {/* <Basictable /> */}
+      <Pagination />
 
     </div>
   );

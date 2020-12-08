@@ -67,6 +67,8 @@ const Pagination = () => {
                 </strong>
                 <div>Go to page
                     <input type='number' defaultValue={pageIndex+1} 
+                    min={1}
+                    max={pageOptions.length}
                         onChange={e => {
                             const pageNumber = e.target.value ? Number(e.target.value) - 1: 0 
                             gotoPage(pageNumber)
