@@ -1,36 +1,47 @@
 import { format } from 'date-fns'
+import { ColumnFilter } from './columnFilter'
 export const COLUMNS = [
     {
         Header : 'Id',
         Footer : 'Id',
-        accessor : 'id'
+        accessor : 'id',
+        // Filter : ColumnFilter,
+        disableFilters: true,
+        // sticky: 'left'
     },
     {
         Header : 'First Name',
         Footer : 'First Name',
-        accessor : 'first_name'
+        accessor : 'first_name',
+        // sticky: 'left'
+        // Filter : ColumnFilter
     },
     {
         Header : 'Last Name',
         Footer : 'Last Name',
-        accessor : 'last_name'
+        accessor : 'last_name',
+        // sticky: 'left'
+        // Filter : ColumnFilter
     },
     {
         Header : 'Email',
         Footer : 'Email',
-        accessor : 'email'
+        accessor : 'email',
+        // Filter : ColumnFilter
     },
     {
         Header : 'Date of Birth',
         Footer : 'Date of Birth',
         accessor : 'dob',
+        // Filter : ColumnFilter,
         Cell: ({ value }) => { return format(new Date(value), 'dd/MM/yyyy')}
     },
     {
         Header : 'Gender',
         Footer : 'Gender',
-        accessor : 'gender'
-    }
+        accessor : 'gender',
+        // Filter : ColumnFilter
+    }   
 ] 
 
 export const GROUP_COLUMNS = [
